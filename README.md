@@ -1,2 +1,2 @@
 # CTDL-HQT
-<h1>Bài tập trên trường</h1>
+<h2>Bài tập trên trường</h2>
