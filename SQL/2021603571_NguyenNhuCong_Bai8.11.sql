@@ -42,7 +42,7 @@ create proc SP_Them_Nhan_Vien(@manv nvarchar(4), @macv nvarchar(2), @tennv nvarc
 as 
 begin
    if(not exists(select * from ChucVu where @macv = MaCV))
-      print N'Mã chức vụ trên đã tồn tại!'
+      print N'Mã chức vụ trên không tồn tại!'
    else 
       begin 
         insert into NhanVien values(@manv,@macv,@tennv,@ngaysinh,@luongcoban,@ngaycong,@phucap)
