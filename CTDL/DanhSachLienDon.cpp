@@ -69,7 +69,7 @@ void themNodePVaoSauNodeQ(LIST &l, NODE *p) {
         }
     }
     if(q == NULL) {
-        cout << "\nKhong tim thay sinh vien co ma SV la " << a.maSV;
+        cout << "\n_ Khong tim thay sinh vien co ma SV la " << a.maSV;
         return;
     }
     if(q == l.pTail) {
@@ -94,6 +94,30 @@ void xuat(LIST l) {
 	}
 }
 
+// tim sv theo ten
+void timKiemSVTheoTen(LIST l) {
+    char tenSV[30];
+    cout<<"\n_ Nhap vao ten sinh vien can tim: ";   fflush(stdin);     gets(tenSV);
+    
+	NODE *p = l.pHead;
+    int found = 0;
+    while(p != NULL) {
+        if(strcmp(p->data.tenSV,tenSV) == 0) {
+            found = 1;
+            cout<<"_ Thong tin sinh vien can tim: ";
+            cout<<"\nMa SV: "<<p->data.maSV;
+            cout<<"\nTen SV: "<<p->data.tenSV;
+            cout<<"\nDiem TB: "<<p->data.diem;
+            break;
+        }
+        p = p->pNext;
+    }
+    if(found == 0) {
+        cout<<"\n_ Khong tim thay sinh vien co ten la "<<tenSV;
+    }
+}
+
+//tim sv co diem max
 void timMaxDiem(LIST l) {
     if (l.pHead == NULL) {
         cout << "\nDanh sach rong!";
@@ -106,7 +130,7 @@ void timMaxDiem(LIST l) {
             max = k->data;
         }
     }
-    cout<<"\nThong tin sv co diem TB lon nhat: ";
+    cout<<"\n_ Thong tin sv co diem TB lon nhat: ";
     cout<<endl;
     cout<<setw(20)<<left<<"Ma SV";
     cout<<setw(20)<<left<<"Ten SV";
@@ -117,6 +141,7 @@ void timMaxDiem(LIST l) {
     cout<<setw(20)<<left<<max.diem;
 }
 
+// tim sv co diem min
 void timMinDiem(LIST l) {
     if (l.pHead == NULL) {
         cout << "\nDanh sach rong!";
@@ -129,7 +154,7 @@ void timMinDiem(LIST l) {
             min = k->data;
         }
     }
-    cout<<"\nThong tin sv co diem TB nho nhat: ";
+    cout<<"\n_ Thong tin sv co diem TB nho nhat: ";
     cout<<endl;
     cout<<setw(20)<<left<<"Ma SV";
     cout<<setw(20)<<left<<"Ten SV";
@@ -140,6 +165,38 @@ void timMinDiem(LIST l) {
     cout<<setw(20)<<left<<min.diem;
 }
 
+// xoa sv theo ten
+void xoaSinhVienTheoTen(LIST &l, char ten[]) {
+    if (l.pHead == NULL) {
+        cout << "\nDanh sach rong!";
+        return;
+    }
+
+    NODE *prev = NULL;
+    NODE *p = l.pHead;
+    while (p != NULL && strcmp(p->data.tenSV, ten) != 0) {
+        prev = p;
+        p = p->pNext;
+    }
+    if (p == NULL) {
+        cout << "_ Khong tim thay sinh vien co ten " << ten << " trong danh sach!";
+        return;
+    }
+    if (prev == NULL) { // xoa phan tu dau tien
+        l.pHead = p->pNext;
+        delete p;
+    } else {
+        prev->pNext = p->pNext;
+        if (p == l.pTail) { // xoa phan tu cuoi cung
+            l.pTail = prev;
+        }
+        delete p;
+    }
+    cout << "_ Da xoa thanh cong sinh vien co ten " << ten << " trong danh sach!";
+}
+
+
+// xoa vi tri bat ky
 void xoaVT(LIST &l, int k) {
 	NODE *p = l.pHead;
     if(l.pHead == NULL) {
@@ -153,7 +210,7 @@ void xoaVT(LIST &l, int k) {
             p = p->pNext;
         }
         if (p->pNext == NULL) {
-            cout << "\nVi tri xoa khong hop le!";
+            cout << "\n_ Vi tri xoa khong hop le!";
             return;
         }
         NODE *q = p->pNext;
@@ -162,6 +219,7 @@ void xoaVT(LIST &l, int k) {
     }
 }
 
+// xoa sv co diem max
 void xoaMaxDiem(LIST &l) {
     if(l.pHead == NULL) {
         cout << "\nDanh sach rong!";
@@ -197,7 +255,43 @@ void xoaMaxDiem(LIST &l) {
             p = p->pNext;
         }
     }
-    cout<<"\nDa xoa tat ca sinh vien co diem trung binh cao nhat!";
+    cout<<"\n_ Da xoa tat ca sinh vien co diem trung binh cao nhat!";
+}
+
+// chen 1 sv truoc sv co diem max
+void chenSVTruocSVMax(LIST &l) {
+	if (l.pHead == NULL) {
+		cout << "\nDanh sach rong!";
+		return;
+	}
+	
+	sv b;
+	cout << "\n_ Nhap thong tin sv can chen truoc: "<<endl;
+	cout << "\nNhap ma sv: ";     fflush(stdin);   gets(b.maSV);
+	cout << "Nhap ten sv: ";    fflush(stdin);   gets(b.tenSV);
+	cout << "Nhap diem: ";                       cin>>b.diem;
+	NODE *c = khoiTaoNode(b);
+	
+	NODE *p, *q;
+	p = q = l.pHead;
+	
+	while(p != NULL) {
+		if (p->data.diem > q->data.diem) {
+			q = p;
+		}
+		p = p->pNext;
+	}
+	
+	if(q == l.pHead) {
+		themVaoDau(l, c);
+	}else {
+		NODE *prew = l.pHead;
+		while(prew->pNext != q) {
+			prew = prew->pNext;
+		}
+		prew->pNext = c;
+		c->pNext = q;
+	}
 }
 
 
@@ -226,19 +320,33 @@ int main() {
 	themNodePVaoSauNodeQ(l,c);
 	cout<<endl;
 	xuat(l);
+//  tim sv theo ten
+    timKiemSVTheoTen(l);
+    cout<<endl;
 //  tim max, min theo diem
 	timMaxDiem(l);
 	timMinDiem(l);
+//  xoa sv theo ten
+    char tenSVXoa[30];
+    cout<<endl<<"\n_ Nhap ten sv can xoa: ";    fflush(stdin);   gets(tenSVXoa);
+    xoaSinhVienTheoTen(l, tenSVXoa);
+    cout<<endl;
+    xuat(l);
 //  xoa sv tai vi tri thu k
     int k;
     cout<<endl;
-    cout<<"\nNhap vao vi tri can xoa: ";
+    cout<<"\n_ Nhap vao vi tri can xoa: ";
     cin>>k;
 	xoaVT(l,k);
 	xuat(l);
+//  xoa sv co diem max
 	xoaMaxDiem(l);
 	cout<<endl;
 	xuat(l);
+//  chen 1 sv truoc sv diem max
+    chenSVTruocSVMax(l);
+    cout<<endl;
+    xuat(l);
 }
 /*
 3
@@ -255,6 +363,11 @@ SV04
 Bui Xuan Hung
 3.75
 SV02
+Trinh Gia Linh
+Nguyen Kim Anh
 1
+SV05
+Hoang Manh Hung
+2.88
 
 */
