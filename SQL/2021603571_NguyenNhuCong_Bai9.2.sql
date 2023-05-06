@@ -206,8 +206,9 @@ go
 create proc SP_NhapNhap(@soHDN nchar(10), @maSP nchar(10), @maNV nchar(10), @ngayNhap Date, @soLuongN int, @donGiaN money)
 as 
 begin 
-    if(not exists(select * from SanPham where MaSP = @maSP) and not exists(select * from NhanVien where MaNV = @maNV))
-       print N'Không tồn tại sản phẩm và nhân viên!';
+    if(not exists(select * from SanPham where MaSP = @maSP) or 
+	   not exists(select * from NhanVien where MaNV = @maNV))
+       print N'Lỗi nhập dữ liệu!';
     else 
 	    if(exists(select * from Nhap where SoHDN = @soHDN))
 	        begin 
