@@ -1,4 +1,4 @@
-use master
+﻿use master
 go
 create database QLBanHang
 
@@ -121,50 +121,116 @@ insert into Xuat values
 	('X04', 'SP03', 2),
 	('X05', 'SP05', 1);
 
--- a: 
+-- a:
 go 
-create proc SP_NhapHangSX(@mahangsx nchar(10), @tenhang nvarchar(30), @diachi nvarchar(50), @sodt nvarchar(20), @email nvarchar(30))
+create proc SP_NhapHangSX(@maHangSX nchar(10), @tenHang nvarchar(30), @diaChi nvarchar(50), @soDT nvarchar(20), @email nvarchar(30), @error int output)
 as 
-begin
-   if(exists(select * from HangSX where HangSX.TenHang = @tenhang))
-      print N'Tên hãng sản xuất đã tồn tại!'
-    else 
-      begin 
-        insert into HangSX values(@mahangsx,@tenhang,@diachi,@sodt,@email)
-        print N'Đã thêm hãng sản xuất!'
-      end
-end;
-
-go 
-exec SP_NhapHangSX 'H05', 'Viettel', N'VN', '0535353874', 'vn123@gmail.com';
-select * from HangSX;
-
--- b:
-go 
-create proc SP_NhapNV(@manv nchar(10), @tennv nvarchar(20), @gioitinh nvarchar(10), @diachi nvarchar(30), @sodt nvarchar(20), @email nvarchar(30), @tenphong nvarchar(30), @flag int, @kq int output)
-as 
-begin
-    if(@gioitinh != N'Nam' and @gioitinh != N'Nữ')
-       set @kq = 1
-    else 
+begin 
+    if(exists(select * from HangSX where TenHang = @tenHang))
         begin 
-            set @kq = 0
-            if(@flag = 0) 
-               insert into NhanVien values(@manv,@tennv,@gioitinh,@diachi,@sodt,@email,@tenphong)
-            else 
-               update NhanVien 
-               set TenNV = @tennv,
-               GioiTinh = @gioitinh,
-               DiaChi = @diachi,
-               SoDT = @sodt,
-               Email = @email,
-               TenPhong = @tenphong
-               where MaNV = @manv
-        end
+	        set @error = 1;
+		    print N'tên hãng đã tồn tại!';
+	    end
+	else
+	    begin 
+	        set @error = 0;
+		    insert into HangSX values(@maHangSX,@tenHang,@diaChi,@soDT,@email);
+		    print N'Đã thêm hãng sản xuất!';
+	    end
 end;
 
 go 
 declare @error int;
-exec SP_NhapNV 'NV04',N'Nguyễn Như Công',N'Nam',N'Đan Phượng','0982144271','cong11@gmail.com',N'CNTT', 1, @error output;
-select * from NhanVien;
+exec SP_NhapHangSX 'H04', 'Iphone', N'Mỹ', '034-4564363435', 'ip@gmail.com.vn', @error output;
+select * from HangSX;
+select @error as 'Error';
+
+--b:
+go 
+create proc SP_NhapNhap(@soHDN nchar(10), @maSP nchar(10), @maNV nchar(10), @ngayNhap date, @soLuongN int, @donGiaN money, @error int output)
+as
+begin
+    if(not exists(select * from SanPham where @maSP = MaSP))
+        begin 
+	        set @error = 1;
+			return;
+	    end
+	if(not exists(select * from NhanVien where @maNV = MaNV))
+        begin 
+	        set @error = 2;
+			return;
+	    end
+	if(not exists(select * from PNhap where SoHDN = @soHDN))
+		begin
+			set @error = 3;
+		end
+	
+	if(exists(select * from Nhap where SoHDN = @soHDN))
+	    begin 
+	        update Nhap
+		    set MaSP = @maSP, SoLuongN = @soLuongN, DonGiaN = @donGiaN
+		    where SoHDN = @soHDN;
+			set @error = 0;
+		    print N'Đã cập nhật bảng Nhap!';
+	    end
+	else
+	    begin 
+	        insert into Nhap values(@soHDN,@maSP,@soLuongN,@donGiaN);
+		    set @error = 0;
+			print N'Đã thêm mới vào bảng Nhap!';
+	    end
+end;
+
+go 
+declare @error int;
+exec SP_NhapNhap 'N05', 'SP06', 'NV01', '2023-5-6', 50, 9000000, @error output;
+select * from Nhap;
+select @error as 'Error';
+
+-- c:
+go 
+create proc SP_NhapDLXuat(@soHDX nchar(10), @maSP nchar(10), @maNV nchar(10), @ngayXuat date, @soLuongX int, @error int output)
+as 
+begin
+    if(not exists(select * from SanPham where MaSP = @maSP)) 
+	    begin 
+		    set @error = 1;
+		    return;
+	    end
+	if(not exists(select * from NhanVien where MaNV = @maNV))
+	    begin 
+		    set @error = 2;
+			return;
+		end
+	if(not exists(select * from Xuat where @maSP = MaSP and @soLuongX <= SoLuongX))
+	    begin 
+		    set @error = 3;
+			return;
+		end
+	if(not exists(select * from PXuat where SoHDX = @soHDX))
+		begin
+			set @error = 4;
+			print N'Error!';
+			return;
+		end
+	if(exists(select * from Xuat where SoHDX = @soHDX))
+	    begin 
+		    update Xuat
+			set MaSP = @maSP, SoLuongX = @soLuongX
+			where SoHDX = @soHDX;
+			set @error = 0;
+			print N'Đã cập nhật bảng Xuat!';
+		end
+	else 
+	    begin 
+		    insert into Xuat values(@soHDX,@maSP,@soLuongX);
+			set @error = 0;
+			print N'Đã thêm mới vào bảng Xuat!';
+		end
+end;
+
+go 
+declare @error int;
+exec SP_NhapDLXuat 'X06', 'SP02', 'NV02', '2020-6-14', 1, @error output;
+select * from Xuat;
 select @error as 'Error';
