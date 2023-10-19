@@ -1,0 +1,7 @@
+E:\C#\Bai1VN\bin\Debug\Bai1VN.exe.config
+E:\C#\Bai1VN\bin\Debug\Bai1VN.exe
+E:\C#\Bai1VN\bin\Debug\Bai1VN.pdb
+E:\C#\Bai1VN\obj\Debug\Bai1VN.csproj.AssemblyReference.cache
+E:\C#\Bai1VN\obj\Debug\Bai1VN.csproj.CoreCompileInputs.cache
+E:\C#\Bai1VN\obj\Debug\Bai1VN.exe
+E:\C#\Bai1VN\obj\Debug\Bai1VN.pdb

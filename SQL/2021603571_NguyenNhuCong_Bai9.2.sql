@@ -22,8 +22,8 @@ create table SanPham (
 	GiaBan money,
 	DonViTinh nchar(10),
 	MoTa nvarchar(max),
-	constraint F K_SP_MaHangSX foreign key(maHangSX)
-	references HangSX(maHangSX)
+	constraint FK_SP_MaHangSX foreign key(MaHangSX)
+	references HangSX(MaHangSX)
 );
 
 create table NhanVien(

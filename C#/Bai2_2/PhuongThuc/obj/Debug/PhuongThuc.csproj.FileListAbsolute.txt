@@ -1,0 +1,7 @@
+E:\C#\PhuongThuc\bin\Debug\PhuongThuc.exe.config
+E:\C#\PhuongThuc\bin\Debug\PhuongThuc.exe
+E:\C#\PhuongThuc\bin\Debug\PhuongThuc.pdb
+E:\C#\PhuongThuc\obj\Debug\PhuongThuc.csproj.AssemblyReference.cache
+E:\C#\PhuongThuc\obj\Debug\PhuongThuc.csproj.CoreCompileInputs.cache
+E:\C#\PhuongThuc\obj\Debug\PhuongThuc.exe
+E:\C#\PhuongThuc\obj\Debug\PhuongThuc.pdb

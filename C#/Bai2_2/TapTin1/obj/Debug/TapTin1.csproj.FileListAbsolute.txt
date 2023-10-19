@@ -1,0 +1,7 @@
+E:\C#\Bai2_2\TapTin1\bin\Debug\TapTin1.exe.config
+E:\C#\Bai2_2\TapTin1\bin\Debug\TapTin1.exe
+E:\C#\Bai2_2\TapTin1\bin\Debug\TapTin1.pdb
+E:\C#\Bai2_2\TapTin1\obj\Debug\TapTin1.csproj.AssemblyReference.cache
+E:\C#\Bai2_2\TapTin1\obj\Debug\TapTin1.csproj.CoreCompileInputs.cache
+E:\C#\Bai2_2\TapTin1\obj\Debug\TapTin1.exe
+E:\C#\Bai2_2\TapTin1\obj\Debug\TapTin1.pdb

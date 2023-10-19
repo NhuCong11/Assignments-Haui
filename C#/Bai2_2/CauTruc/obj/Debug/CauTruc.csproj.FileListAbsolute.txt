@@ -1,0 +1,7 @@
+E:\C#\CauTruc\bin\Debug\CauTruc.exe.config
+E:\C#\CauTruc\bin\Debug\CauTruc.exe
+E:\C#\CauTruc\bin\Debug\CauTruc.pdb
+E:\C#\CauTruc\obj\Debug\CauTruc.csproj.AssemblyReference.cache
+E:\C#\CauTruc\obj\Debug\CauTruc.csproj.CoreCompileInputs.cache
+E:\C#\CauTruc\obj\Debug\CauTruc.exe
+E:\C#\CauTruc\obj\Debug\CauTruc.pdb

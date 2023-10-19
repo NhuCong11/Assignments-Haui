@@ -1,0 +1,7 @@
+E:\C#\HeCoSo\bin\Debug\HeCoSo.exe.config
+E:\C#\HeCoSo\bin\Debug\HeCoSo.exe
+E:\C#\HeCoSo\bin\Debug\HeCoSo.pdb
+E:\C#\HeCoSo\obj\Debug\HeCoSo.csproj.AssemblyReference.cache
+E:\C#\HeCoSo\obj\Debug\HeCoSo.csproj.CoreCompileInputs.cache
+E:\C#\HeCoSo\obj\Debug\HeCoSo.exe
+E:\C#\HeCoSo\obj\Debug\HeCoSo.pdb

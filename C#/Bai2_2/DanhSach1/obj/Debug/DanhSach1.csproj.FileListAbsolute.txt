@@ -1,0 +1,7 @@
+E:\C#\Bai2_2\DanhSach1\bin\Debug\DanhSach1.exe.config
+E:\C#\Bai2_2\DanhSach1\bin\Debug\DanhSach1.exe
+E:\C#\Bai2_2\DanhSach1\bin\Debug\DanhSach1.pdb
+E:\C#\Bai2_2\DanhSach1\obj\Debug\DanhSach1.csproj.AssemblyReference.cache
+E:\C#\Bai2_2\DanhSach1\obj\Debug\DanhSach1.csproj.CoreCompileInputs.cache
+E:\C#\Bai2_2\DanhSach1\obj\Debug\DanhSach1.exe
+E:\C#\Bai2_2\DanhSach1\obj\Debug\DanhSach1.pdb

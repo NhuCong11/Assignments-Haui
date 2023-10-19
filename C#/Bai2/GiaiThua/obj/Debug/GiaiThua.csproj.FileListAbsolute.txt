@@ -1,0 +1,7 @@
+E:\C#\GiaiThua\bin\Debug\GiaiThua.exe.config
+E:\C#\GiaiThua\bin\Debug\GiaiThua.exe
+E:\C#\GiaiThua\bin\Debug\GiaiThua.pdb
+E:\C#\GiaiThua\obj\Debug\GiaiThua.csproj.AssemblyReference.cache
+E:\C#\GiaiThua\obj\Debug\GiaiThua.csproj.CoreCompileInputs.cache
+E:\C#\GiaiThua\obj\Debug\GiaiThua.exe
+E:\C#\GiaiThua\obj\Debug\GiaiThua.pdb

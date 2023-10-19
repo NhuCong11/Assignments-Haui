@@ -1,0 +1,7 @@
+E:\C#\Chuoi\bin\Debug\Chuoi.exe.config
+E:\C#\Chuoi\bin\Debug\Chuoi.exe
+E:\C#\Chuoi\bin\Debug\Chuoi.pdb
+E:\C#\Chuoi\obj\Debug\Chuoi.csproj.AssemblyReference.cache
+E:\C#\Chuoi\obj\Debug\Chuoi.csproj.CoreCompileInputs.cache
+E:\C#\Chuoi\obj\Debug\Chuoi.exe
+E:\C#\Chuoi\obj\Debug\Chuoi.pdb

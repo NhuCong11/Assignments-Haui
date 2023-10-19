@@ -1,0 +1,7 @@
+E:\C#\DanhSach\bin\Debug\DanhSach.exe.config
+E:\C#\DanhSach\bin\Debug\DanhSach.exe
+E:\C#\DanhSach\bin\Debug\DanhSach.pdb
+E:\C#\DanhSach\obj\Debug\DanhSach.csproj.AssemblyReference.cache
+E:\C#\DanhSach\obj\Debug\DanhSach.csproj.CoreCompileInputs.cache
+E:\C#\DanhSach\obj\Debug\DanhSach.exe
+E:\C#\DanhSach\obj\Debug\DanhSach.pdb

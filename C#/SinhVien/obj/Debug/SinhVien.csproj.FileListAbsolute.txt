@@ -1,0 +1,7 @@
+E:\C#\SinhVien\bin\Debug\SinhVien.exe.config
+E:\C#\SinhVien\bin\Debug\SinhVien.exe
+E:\C#\SinhVien\bin\Debug\SinhVien.pdb
+E:\C#\SinhVien\obj\Debug\SinhVien.csproj.AssemblyReference.cache
+E:\C#\SinhVien\obj\Debug\SinhVien.csproj.CoreCompileInputs.cache
+E:\C#\SinhVien\obj\Debug\SinhVien.exe
+E:\C#\SinhVien\obj\Debug\SinhVien.pdb

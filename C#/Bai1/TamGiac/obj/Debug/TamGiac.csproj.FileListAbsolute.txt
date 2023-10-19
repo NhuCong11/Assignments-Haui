@@ -1,0 +1,7 @@
+E:\C#\TamGiac\bin\Debug\TamGiac.exe.config
+E:\C#\TamGiac\bin\Debug\TamGiac.exe
+E:\C#\TamGiac\bin\Debug\TamGiac.pdb
+E:\C#\TamGiac\obj\Debug\TamGiac.csproj.AssemblyReference.cache
+E:\C#\TamGiac\obj\Debug\TamGiac.csproj.CoreCompileInputs.cache
+E:\C#\TamGiac\obj\Debug\TamGiac.exe
+E:\C#\TamGiac\obj\Debug\TamGiac.pdb
