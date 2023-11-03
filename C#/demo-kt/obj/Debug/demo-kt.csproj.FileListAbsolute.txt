@@ -1,0 +1,7 @@
+E:\C#\demo-kt\bin\Debug\demo-kt.exe.config
+E:\C#\demo-kt\bin\Debug\demo-kt.exe
+E:\C#\demo-kt\bin\Debug\demo-kt.pdb
+E:\C#\demo-kt\obj\Debug\demo-kt.csproj.AssemblyReference.cache
+E:\C#\demo-kt\obj\Debug\demo-kt.csproj.CoreCompileInputs.cache
+E:\C#\demo-kt\obj\Debug\demo-kt.exe
+E:\C#\demo-kt\obj\Debug\demo-kt.pdb
